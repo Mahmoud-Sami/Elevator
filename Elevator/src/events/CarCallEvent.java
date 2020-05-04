@@ -2,14 +2,14 @@ package events;
 
 public class CarCallEvent {
 
-    private int floorno;
+    private final int FloorNumber;
 
-    public CarCallEvent(int floorno) {
-        this.floorno = floorno;
+    public CarCallEvent(int FloorNumber) {
+        this.FloorNumber = FloorNumber;
     }
 
-    public int getFloorno() {
-        return floorno;
+    public int getFloorNumber() {
+        return FloorNumber;
     }
 
 }

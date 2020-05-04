@@ -2,14 +2,14 @@ package events;
 
 public class DoorStateSensor {
 
-    private boolean doorstate;
+    private final boolean doorState;
 
-    public DoorStateSensor(boolean doorstate) {
-        this.doorstate = doorstate;
+    public DoorStateSensor(boolean doorState) {
+        this.doorState = doorState;
     }
 
     public boolean isDoorstate() {
-        return doorstate;
+        return doorState;
     }
 
 }

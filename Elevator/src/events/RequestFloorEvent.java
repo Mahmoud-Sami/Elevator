@@ -2,14 +2,14 @@ package events;
 
 public class RequestFloorEvent {
 
-    private int floorno;
+    private int floorNumber;
 
-    public RequestFloorEvent(int floorno) {
-        this.floorno = floorno;
+    public RequestFloorEvent(int floorNumber) {
+        this.floorNumber = floorNumber;
     }
 
-    public int getFloorno() {
-        return floorno;
+    public int getFloorNumber() {
+        return floorNumber;
     }
 
 }

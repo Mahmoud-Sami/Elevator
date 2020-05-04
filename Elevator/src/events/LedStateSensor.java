@@ -2,14 +2,16 @@ package events;
 
 public class LedStateSensor {
 
-    private boolean ledstate;
+    private enum Color { Red, Green };
 
-    public LedStateSensor(boolean ledstate) {
-        this.ledstate = ledstate;
+    private final Color ledColor;
+
+    public LedStateSensor(Color ledColor) {
+        this.ledColor = ledColor;
     }
 
-    public boolean isLedstate() {
-        return ledstate;
+    public Color getLedColor() {
+        return ledColor;
     }
 
 }
