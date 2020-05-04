@@ -3,19 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package elevator;
+package esper;
+
+import javafx.application.Application;
+import view.ElevatorGUI;
 
 /**
  *
  * @author Mahmo
  */
-public class Elevator {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        System.out.print("Hello");
+public class Main {
+    public static void main(String[] args){
+        Application.launch(ElevatorGUI.class, args);
     }
-    
 }
