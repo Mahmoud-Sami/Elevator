@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class ElevatorGUI extends Application {
+public class GUI extends Application {
 
     @Override
     public void start(Stage stage) {
