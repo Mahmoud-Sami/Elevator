@@ -5,19 +5,32 @@
  */
 package view;
 
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.text.html.ImageView;
+
 /**
  *
  * @author halim
  */
 public class GUI extends javax.swing.JFrame {
 
-    /**
-     * Creates new form GUI
-     */
     public GUI() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,20 +47,8 @@ public class GUI extends javax.swing.JFrame {
         Call3 = new javax.swing.JButton();
         Call2 = new javax.swing.JButton();
         Call1 = new javax.swing.JButton();
-        Floor6 = new javax.swing.JPanel();
-        F6 = new javax.swing.JLabel();
-        Floor5 = new javax.swing.JPanel();
-        F5 = new javax.swing.JLabel();
         Elevator = new javax.swing.JPanel();
         Led = new javax.swing.JPanel();
-        Floor4 = new javax.swing.JPanel();
-        F4 = new javax.swing.JLabel();
-        Floor3 = new javax.swing.JPanel();
-        F3 = new javax.swing.JLabel();
-        Floor2 = new javax.swing.JPanel();
-        F2 = new javax.swing.JLabel();
-        Floor1 = new javax.swing.JPanel();
-        F1 = new javax.swing.JLabel();
         ButtonsPanel = new javax.swing.JPanel();
         RequestFloor1 = new javax.swing.JButton();
         RequestFloor2 = new javax.swing.JButton();
@@ -58,60 +59,58 @@ public class GUI extends javax.swing.JFrame {
         OpenDoor = new javax.swing.JButton();
         CloseDoor = new javax.swing.JButton();
         Emergency = new javax.swing.JButton();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Building.setBackground(new java.awt.Color(255, 255, 255));
+        Building.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Call6.setBackground(new java.awt.Color(204, 0, 0));
-        Call6.setForeground(new java.awt.Color(204, 0, 0));
+        Call6.setBackground(new java.awt.Color(255, 255, 255));
         Call6.setText("Call");
+        Call6.addHierarchyListener(new java.awt.event.HierarchyListener() {
+            public void hierarchyChanged(java.awt.event.HierarchyEvent evt) {
+                Call6HierarchyChanged(evt);
+            }
+        });
+        Call6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Call6ActionPerformed(evt);
+            }
+        });
+        Call6.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                Call6PropertyChange(evt);
+            }
+        });
+        Building.add(Call6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 60, 41));
 
-        Call5.setBackground(new java.awt.Color(204, 0, 0));
-        Call5.setForeground(new java.awt.Color(204, 0, 0));
+        Call5.setBackground(new java.awt.Color(255, 255, 255));
         Call5.setText("Call");
+        Building.add(Call5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 60, 41));
 
-        Call4.setBackground(new java.awt.Color(204, 0, 0));
-        Call4.setForeground(new java.awt.Color(204, 0, 0));
+        Call4.setBackground(new java.awt.Color(255, 255, 255));
         Call4.setText("Call");
+        Building.add(Call4, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 271, 60, 41));
 
-        Call3.setBackground(new java.awt.Color(204, 0, 0));
-        Call3.setForeground(new java.awt.Color(204, 0, 0));
+        Call3.setBackground(new java.awt.Color(255, 255, 255));
         Call3.setText("Call");
+        Building.add(Call3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 60, 41));
 
-        Call2.setBackground(new java.awt.Color(204, 0, 0));
-        Call2.setForeground(new java.awt.Color(204, 0, 0));
+        Call2.setBackground(new java.awt.Color(255, 255, 255));
         Call2.setText("Call");
+        Building.add(Call2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 60, 41));
 
-        Call1.setBackground(new java.awt.Color(204, 0, 0));
-        Call1.setForeground(new java.awt.Color(204, 0, 0));
+        Call1.setBackground(new java.awt.Color(255, 255, 255));
         Call1.setText("Call");
+        Call1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Call1ActionPerformed(evt);
+            }
+        });
+        Building.add(Call1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 580, 60, 41));
 
-        Floor6.setBackground(new java.awt.Color(229, 229, 229));
-
-        F6.setText("6");
-
-        javax.swing.GroupLayout Floor6Layout = new javax.swing.GroupLayout(Floor6);
-        Floor6.setLayout(Floor6Layout);
-        Floor6Layout.setHorizontalGroup(
-            Floor6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Floor6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(F6)
-                .addGap(32, 32, 32))
-        );
-        Floor6Layout.setVerticalGroup(
-            Floor6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Floor6Layout.createSequentialGroup()
-                .addComponent(F6)
-                .addGap(0, 84, Short.MAX_VALUE))
-        );
-
-        Floor5.setBackground(new java.awt.Color(229, 229, 229));
-
-        F5.setText("5");
-
-        Elevator.setBackground(new java.awt.Color(153, 153, 153));
+        Elevator.setBackground(new java.awt.Color(0, 153, 255));
 
         Led.setBackground(new java.awt.Color(0, 204, 51));
 
@@ -133,120 +132,19 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(ElevatorLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(Led, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         ElevatorLayout.setVerticalGroup(
             ElevatorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ElevatorLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Led, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout Floor5Layout = new javax.swing.GroupLayout(Floor5);
-        Floor5.setLayout(Floor5Layout);
-        Floor5Layout.setHorizontalGroup(
-            Floor5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Floor5Layout.createSequentialGroup()
-                .addGroup(Floor5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Floor5Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Elevator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Floor5Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(F5)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        Floor5Layout.setVerticalGroup(
-            Floor5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Floor5Layout.createSequentialGroup()
-                .addComponent(F5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Elevator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        Building.add(Elevator, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 50, 60));
 
-        Floor4.setBackground(new java.awt.Color(229, 229, 229));
-
-        F4.setText("4");
-
-        javax.swing.GroupLayout Floor4Layout = new javax.swing.GroupLayout(Floor4);
-        Floor4.setLayout(Floor4Layout);
-        Floor4Layout.setHorizontalGroup(
-            Floor4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Floor4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(F4)
-                .addGap(32, 32, 32))
-        );
-        Floor4Layout.setVerticalGroup(
-            Floor4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Floor4Layout.createSequentialGroup()
-                .addComponent(F4)
-                .addGap(0, 96, Short.MAX_VALUE))
-        );
-
-        Floor3.setBackground(new java.awt.Color(229, 229, 229));
-
-        F3.setText("3");
-
-        javax.swing.GroupLayout Floor3Layout = new javax.swing.GroupLayout(Floor3);
-        Floor3.setLayout(Floor3Layout);
-        Floor3Layout.setHorizontalGroup(
-            Floor3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Floor3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(F3)
-                .addGap(32, 32, 32))
-        );
-        Floor3Layout.setVerticalGroup(
-            Floor3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Floor3Layout.createSequentialGroup()
-                .addComponent(F3)
-                .addGap(0, 84, Short.MAX_VALUE))
-        );
-
-        Floor2.setBackground(new java.awt.Color(229, 229, 229));
-
-        F2.setText("2");
-
-        javax.swing.GroupLayout Floor2Layout = new javax.swing.GroupLayout(Floor2);
-        Floor2.setLayout(Floor2Layout);
-        Floor2Layout.setHorizontalGroup(
-            Floor2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Floor2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(F2)
-                .addGap(32, 32, 32))
-        );
-        Floor2Layout.setVerticalGroup(
-            Floor2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Floor2Layout.createSequentialGroup()
-                .addComponent(F2)
-                .addGap(0, 84, Short.MAX_VALUE))
-        );
-
-        Floor1.setBackground(new java.awt.Color(229, 229, 229));
-
-        F1.setText("1");
-
-        javax.swing.GroupLayout Floor1Layout = new javax.swing.GroupLayout(Floor1);
-        Floor1.setLayout(Floor1Layout);
-        Floor1Layout.setHorizontalGroup(
-            Floor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Floor1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(F1)
-                .addGap(32, 32, 32))
-        );
-        Floor1Layout.setVerticalGroup(
-            Floor1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Floor1Layout.createSequentialGroup()
-                .addComponent(F1)
-                .addGap(0, 84, Short.MAX_VALUE))
-        );
-
-        ButtonsPanel.setBackground(new java.awt.Color(102, 102, 102));
+        ButtonsPanel.setBackground(new java.awt.Color(219, 217, 208));
 
         RequestFloor1.setText("1");
         RequestFloor1.addActionListener(new java.awt.event.ActionListener() {
@@ -354,70 +252,13 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(CloseDoor, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Emergency, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout BuildingLayout = new javax.swing.GroupLayout(Building);
-        Building.setLayout(BuildingLayout);
-        BuildingLayout.setHorizontalGroup(
-            BuildingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BuildingLayout.createSequentialGroup()
-                .addGap(158, 158, 158)
-                .addGroup(BuildingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Call2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Call1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Call3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Call4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Call6, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Call5, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(BuildingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Floor4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Floor3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Floor2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Floor1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Floor5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Floor6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(80, 80, 80)
-                .addComponent(ButtonsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
-        );
-        BuildingLayout.setVerticalGroup(
-            BuildingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BuildingLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(Call5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81)
-                .addComponent(Call6, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Call4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69)
-                .addComponent(Call3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
-                .addComponent(Call2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(Call1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BuildingLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(BuildingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(BuildingLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(ButtonsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(BuildingLayout.createSequentialGroup()
-                        .addComponent(Floor6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Floor5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Floor4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Floor3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Floor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Floor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(25, 25, 25))
-        );
+        Building.add(ButtonsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, -1, 320));
+
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/bg.jpg"))); // NOI18N
+        Building.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 680));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -427,47 +268,63 @@ public class GUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Building, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Building, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void RequestFloor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RequestFloor1ActionPerformed
+    private void Call1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Call1ActionPerformed
+        
+    }//GEN-LAST:event_Call1ActionPerformed
 
-    private void RequestFloor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor2ActionPerformed
+    private void Call6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Call6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_RequestFloor2ActionPerformed
+    }//GEN-LAST:event_Call6ActionPerformed
 
-    private void RequestFloor3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor3ActionPerformed
+    private void EmergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmergencyActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_RequestFloor3ActionPerformed
-
-    private void RequestFloor4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RequestFloor4ActionPerformed
-
-    private void RequestFloor5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RequestFloor5ActionPerformed
-
-    private void RequestFloor6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RequestFloor6ActionPerformed
-
-    private void OpenDoorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenDoorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_OpenDoorActionPerformed
+    }//GEN-LAST:event_EmergencyActionPerformed
 
     private void CloseDoorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseDoorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CloseDoorActionPerformed
 
-    private void EmergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmergencyActionPerformed
+    private void OpenDoorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenDoorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_EmergencyActionPerformed
+    }//GEN-LAST:event_OpenDoorActionPerformed
+
+    private void RequestFloor6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RequestFloor6ActionPerformed
+
+    private void RequestFloor5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RequestFloor5ActionPerformed
+
+    private void RequestFloor4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RequestFloor4ActionPerformed
+
+    private void RequestFloor3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RequestFloor3ActionPerformed
+
+    private void RequestFloor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RequestFloor2ActionPerformed
+
+    private void RequestFloor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RequestFloor1ActionPerformed
+
+    private void Call6HierarchyChanged(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_Call6HierarchyChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Call6HierarchyChanged
+
+    private void Call6PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_Call6PropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Call6PropertyChange
 
     /**
      * @param args the command line arguments
@@ -501,6 +358,7 @@ public class GUI extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new GUI().setVisible(true);
             }
@@ -519,18 +377,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton CloseDoor;
     private javax.swing.JPanel Elevator;
     private javax.swing.JButton Emergency;
-    private javax.swing.JLabel F1;
-    private javax.swing.JLabel F2;
-    private javax.swing.JLabel F3;
-    private javax.swing.JLabel F4;
-    private javax.swing.JLabel F5;
-    private javax.swing.JLabel F6;
-    private javax.swing.JPanel Floor1;
-    private javax.swing.JPanel Floor2;
-    private javax.swing.JPanel Floor3;
-    private javax.swing.JPanel Floor4;
-    private javax.swing.JPanel Floor5;
-    private javax.swing.JPanel Floor6;
     private javax.swing.JPanel Led;
     private javax.swing.JButton OpenDoor;
     private javax.swing.JButton RequestFloor1;
@@ -539,5 +385,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton RequestFloor4;
     private javax.swing.JButton RequestFloor5;
     private javax.swing.JButton RequestFloor6;
+    private javax.swing.JLabel background;
     // End of variables declaration//GEN-END:variables
 }
