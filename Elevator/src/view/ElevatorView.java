@@ -26,7 +26,7 @@ public class ElevatorView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Building1 = new javax.swing.JPanel();
+        BuildingPanel = new javax.swing.JPanel();
         btnCall6Down = new javax.swing.JButton();
         btnCall5Up = new javax.swing.JButton();
         btnCall5Down = new javax.swing.JButton();
@@ -55,93 +55,108 @@ public class ElevatorView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Building1.setBackground(new java.awt.Color(255, 255, 255));
-        Building1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        BuildingPanel.setBackground(new java.awt.Color(255, 255, 255));
+        BuildingPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnCall6Down.setBackground(new java.awt.Color(255, 255, 255));
         btnCall6Down.setText("↓");
+        btnCall6Down.setName("D6"); // NOI18N
         btnCall6Down.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCall6DownActionPerformed(evt);
             }
         });
-        Building1.add(btnCall6Down, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 60, 45, 40));
+        BuildingPanel.add(btnCall6Down, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 60, 45, 40));
 
         btnCall5Up.setBackground(new java.awt.Color(255, 255, 255));
         btnCall5Up.setText("↑");
+        btnCall5Up.setName("U5"); // NOI18N
         btnCall5Up.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCall5UpActionPerformed(evt);
             }
         });
-        Building1.add(btnCall5Up, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 45, 40));
+        BuildingPanel.add(btnCall5Up, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 45, 40));
 
+        btnCall5Down.setBackground(new java.awt.Color(255, 255, 255));
         btnCall5Down.setText("↓");
+        btnCall5Down.setName("D5"); // NOI18N
         btnCall5Down.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCall5DownActionPerformed(evt);
             }
         });
-        Building1.add(btnCall5Down, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 170, 45, 40));
+        BuildingPanel.add(btnCall5Down, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 170, 45, 40));
 
         btnCall4Up.setBackground(new java.awt.Color(255, 255, 255));
         btnCall4Up.setText("↑");
+        btnCall4Up.setName("U4"); // NOI18N
         btnCall4Up.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCall4UpActionPerformed(evt);
             }
         });
-        Building1.add(btnCall4Up, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 45, 40));
+        BuildingPanel.add(btnCall4Up, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 45, 40));
 
+        btnCall4Down.setBackground(new java.awt.Color(255, 255, 255));
         btnCall4Down.setText("↓");
+        btnCall4Down.setName("D4"); // NOI18N
         btnCall4Down.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCall4DownActionPerformed(evt);
             }
         });
-        Building1.add(btnCall4Down, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 270, 45, 40));
+        BuildingPanel.add(btnCall4Down, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 270, 45, 40));
 
         btnCall3Up.setBackground(new java.awt.Color(255, 255, 255));
         btnCall3Up.setText("↑");
+        btnCall3Up.setName("U3"); // NOI18N
         btnCall3Up.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCall3UpActionPerformed(evt);
             }
         });
-        Building1.add(btnCall3Up, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 45, 40));
+        BuildingPanel.add(btnCall3Up, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 45, 40));
 
+        btnCall3Down.setBackground(new java.awt.Color(255, 255, 255));
         btnCall3Down.setText("↓");
+        btnCall3Down.setName("D3"); // NOI18N
         btnCall3Down.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCall3DownActionPerformed(evt);
             }
         });
-        Building1.add(btnCall3Down, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 370, 45, 40));
+        BuildingPanel.add(btnCall3Down, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 370, 45, 40));
 
         btnCall2Up.setBackground(new java.awt.Color(255, 255, 255));
         btnCall2Up.setText("↑");
+        btnCall2Up.setName("U2"); // NOI18N
         btnCall2Up.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCall2UpActionPerformed(evt);
             }
         });
-        Building1.add(btnCall2Up, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 45, 40));
+        BuildingPanel.add(btnCall2Up, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 45, 40));
 
+        btnCall2Down.setBackground(new java.awt.Color(255, 255, 255));
         btnCall2Down.setText("↓");
+        btnCall2Down.setName("D2"); // NOI18N
         btnCall2Down.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCall2DownActionPerformed(evt);
             }
         });
-        Building1.add(btnCall2Down, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 480, 45, 40));
+        BuildingPanel.add(btnCall2Down, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 480, 45, 40));
 
         btnCall1Up.setBackground(new java.awt.Color(255, 255, 255));
         btnCall1Up.setText("↑");
+        btnCall1Up.setName("U1"); // NOI18N
         btnCall1Up.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCall1UpActionPerformed(evt);
             }
         });
-        Building1.add(btnCall1Up, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 590, 45, 40));
+        BuildingPanel.add(btnCall1Up, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 590, 45, 40));
 
         ElevatorPanel.setBackground(new java.awt.Color(0, 153, 255));
         ElevatorPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -165,7 +180,7 @@ public class ElevatorView extends javax.swing.JFrame {
         doorImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/opened.png"))); // NOI18N
         ElevatorPanel.add(doorImageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 50, 60));
 
-        Building1.add(ElevatorPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 580, 50, 65));
+        BuildingPanel.add(ElevatorPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 580, 50, 65));
 
         ButtonsPanel.setBackground(new java.awt.Color(219, 217, 208));
         ButtonsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -248,20 +263,20 @@ public class ElevatorView extends javax.swing.JFrame {
         jLabel1.setText("Elevator Controller");
         ButtonsPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 30));
 
-        Building1.add(ButtonsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 120, 350));
+        BuildingPanel.add(ButtonsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 120, 350));
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/bg.jpg"))); // NOI18N
-        Building1.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 680));
+        BuildingPanel.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 680));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Building1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(BuildingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Building1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(BuildingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -432,12 +447,16 @@ public class ElevatorView extends javax.swing.JFrame {
         return elevtorLedPanel;
     }
 
+    public JPanel getBuildingPanel() {
+        return BuildingPanel;
+    }
+
     
     
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Building1;
+    private javax.swing.JPanel BuildingPanel;
     private javax.swing.JPanel ButtonsPanel;
     private javax.swing.JPanel ElevatorPanel;
     private javax.swing.JLabel bg;

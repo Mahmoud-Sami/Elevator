@@ -3,9 +3,12 @@ package model;
 import esper.Config;
 import events.CarStateSensor;
 import events.DoorStateSensor;
+import java.awt.Color;
+import java.awt.Component;
 import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 class ElevatorTranslateThread extends TimerTask 
@@ -13,16 +16,14 @@ class ElevatorTranslateThread extends TimerTask
     int [] FloorY = {580, 472, 364, 258, 152, 48};
     
     private final Elevator elevator;
-    private final int floorNo;
+    private final Request request;
+    
+    public ElevatorTranslateThread(Elevator elevator, Request request) {
 
-    public ElevatorTranslateThread(Elevator elevator, int floorNo) {
-        
-        
-        
         this.elevator = elevator;
-        this.floorNo = floorNo;
+        this.request = request;
         
-        if (elevator.getCurrentFloor() == floorNo || elevator.getIsMoving()){
+        if (elevator.getCurrentFloor() == request.getRequestedFloor() || elevator.getIsMoving()){
             try {
                 this.cancel();
                 this.finalize();
@@ -57,8 +58,7 @@ class ElevatorTranslateThread extends TimerTask
     @Override
     public void run() 
     { 
-        
-        int FloorIndex = this.floorNo-1;
+        int FloorIndex = this.request.getRequestedFloor() - 1;
         JPanel Elevator = elevator.getGUI().getElevatorPanel();
         if (Math.abs(Elevator.getLocation().y - FloorY[FloorIndex]) > 0){
             if (Elevator.getLocation().y > FloorY[FloorIndex]) {
@@ -70,9 +70,21 @@ class ElevatorTranslateThread extends TimerTask
             }
         }
         else{
-            this.cancel();
+            
             Config.sendEvent(new CarStateSensor(CarStateSensor.CarDirection.None, false, Elevator.getLocation().y, getCurrentFloor(Elevator.getLocation().y)));
             Config.sendEvent(new DoorStateSensor(true));
+            request.getClickedBtn().setBackground(Color.WHITE);
+            for (Component c : elevator.getGUI().getBuildingPanel().getComponents()) {
+                if (c instanceof JButton) {
+                    if (((JButton) c).getName().compareToIgnoreCase("D" + request.getClickedBtn().getName().charAt(1)) == 0) {
+                        ((JButton) c).setBackground(Color.WHITE);
+                    } else if (((JButton) c).getName().compareToIgnoreCase("U" + request.getClickedBtn().getName().charAt(1)) == 0){
+                        ((JButton) c).setBackground(Color.WHITE);
+                    }
+                    
+                }
+            }
+            this.cancel();
         }
     } 
  

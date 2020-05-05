@@ -48,9 +48,10 @@ public class Elevator {
         this.controller.ChangeDoorState(false);
     }
     
-    public void MoveElevator(int floorNumber){
-        this.controller.MoveElevator(floorNumber);
+    public void AddRequest(Request request){
+        this.controller.AcceptCarRequest( (CarRequest)request);
     }
+    
     
     
     //--------------Getters------------------\\

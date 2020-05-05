@@ -2,8 +2,11 @@ package esper;
 
 import events.CarCallEvent;
 import events.CarStateSensor;
-import events.LedStateSensor;
+import java.awt.Color;
+import java.awt.Component;
+import javax.swing.JButton;
 import jdk.nashorn.internal.objects.NativeDebug;
+import model.CarRequest;
 import model.Elevator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -51,7 +54,27 @@ public class Main {
         Config.createStatement("select floorNumber, direction from CarCallEvent")
                 .setSubscriber(new Object() {
                     public void update(int floorNumber, CarCallEvent.Direction direction) throws InterruptedException {
-                        elevator.MoveElevator(floorNumber);
+                        JButton clickedBtn = null;
+                        String btnName;
+                        
+                        if (direction == CarCallEvent.Direction.DOWN)
+                            btnName = "D";
+                        else
+                            btnName = "U";
+                        
+                        btnName += floorNumber;
+                        
+                        //Searching for the clicked button
+                        for (Component c : elevator.getGUI().getBuildingPanel().getComponents()){
+                            if (c instanceof JButton){
+                                if (((JButton)c).getName().compareToIgnoreCase(btnName) == 0){
+                                    clickedBtn = (JButton)c;
+                                }
+                            }
+                        }
+                        
+                        clickedBtn.setBackground(Color.YELLOW);
+                        elevator.AddRequest(new CarRequest(floorNumber, direction, clickedBtn));
                     }
                 });
     }
