@@ -27,7 +27,7 @@ public class ElevatorController {
     public void AcceptCarRequest(CarRequest request){
         boolean flagExist = false;
         for (CarRequest r : CarRequestQueue){
-            if (r.getRequestedFloor() == request.getRequestedFloor() || r.getRequestID() == request.getRequestID()){
+            if (r.getRequestedFloor() == request.getRequestedFloor() || r.getRequestID() == request.getRequestID() || request.getRequestedFloor() == elevator.getCurrentFloor()){
                 flagExist = true;
             }
         }

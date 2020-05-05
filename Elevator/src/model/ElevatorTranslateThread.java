@@ -58,6 +58,7 @@ class ElevatorTranslateThread extends TimerTask
     @Override
     public void run() 
     { 
+        System.out.println(elevator.getController().getCarRequestQueue().size());
         int FloorIndex = this.request.getRequestedFloor() - 1;
         JPanel Elevator = elevator.getGUI().getElevatorPanel();
         if (Math.abs(Elevator.getLocation().y - FloorY[FloorIndex]) > 0){

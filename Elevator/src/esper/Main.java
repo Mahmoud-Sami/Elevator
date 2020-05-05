@@ -73,8 +73,10 @@ public class Main {
                             }
                         }
                         
-                        clickedBtn.setBackground(Color.YELLOW);
-                        elevator.AddRequest(new CarRequest(floorNumber, direction, clickedBtn));
+                        if (elevator.getCurrentFloor() != floorNumber){
+                            clickedBtn.setBackground(Color.YELLOW);
+                            elevator.AddRequest(new CarRequest(floorNumber, direction, clickedBtn));
+                        }
                     }
                 });
     }
