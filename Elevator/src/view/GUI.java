@@ -5,6 +5,13 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.BoxLayout;
+import javax.swing.SwingUtilities;
+import javax.swing.Timer;
+
 /**
  *
  * @author halim
@@ -28,24 +35,24 @@ public class GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         Building1 = new javax.swing.JPanel();
-        Call7 = new javax.swing.JButton();
-        Call5 = new javax.swing.JButton();
-        Call4 = new javax.swing.JButton();
-        Call3 = new javax.swing.JButton();
-        Call2 = new javax.swing.JButton();
-        Call1 = new javax.swing.JButton();
+        CallFromFloor6 = new javax.swing.JButton();
+        CallFromFloor5 = new javax.swing.JButton();
+        CallFromFloor4 = new javax.swing.JButton();
+        CallFromFloor3 = new javax.swing.JButton();
+        CallFromFloor2 = new javax.swing.JButton();
+        CallFromFloor1 = new javax.swing.JButton();
         Elevator = new javax.swing.JPanel();
         Led = new javax.swing.JPanel();
         ButtonsPanel = new javax.swing.JPanel();
-        RequestFloor1 = new javax.swing.JButton();
-        RequestFloor2 = new javax.swing.JButton();
-        RequestFloor3 = new javax.swing.JButton();
-        RequestFloor4 = new javax.swing.JButton();
-        RequestFloor5 = new javax.swing.JButton();
-        RequestFloor6 = new javax.swing.JButton();
-        OpenDoor = new javax.swing.JButton();
-        CloseDoor = new javax.swing.JButton();
-        Emergency = new javax.swing.JButton();
+        RequestToFloor1 = new javax.swing.JButton();
+        RequestToFloor2 = new javax.swing.JButton();
+        RequestToFloor3 = new javax.swing.JButton();
+        RequestToFloor4 = new javax.swing.JButton();
+        RequestToFloor5 = new javax.swing.JButton();
+        RequestToFloor6 = new javax.swing.JButton();
+        OpenDoorBtn = new javax.swing.JButton();
+        CloseDoorBtn = new javax.swing.JButton();
+        EmergencyBtn = new javax.swing.JButton();
         bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,49 +60,69 @@ public class GUI extends javax.swing.JFrame {
         Building1.setBackground(new java.awt.Color(255, 255, 255));
         Building1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Call7.setBackground(new java.awt.Color(255, 255, 255));
-        Call7.setText("Call");
-        Call7.addHierarchyListener(new java.awt.event.HierarchyListener() {
+        CallFromFloor6.setBackground(new java.awt.Color(255, 255, 255));
+        CallFromFloor6.setText("Call");
+        CallFromFloor6.addHierarchyListener(new java.awt.event.HierarchyListener() {
             public void hierarchyChanged(java.awt.event.HierarchyEvent evt) {
-                Call7HierarchyChanged(evt);
+                CallFromFloor6HierarchyChanged(evt);
             }
         });
-        Call7.addActionListener(new java.awt.event.ActionListener() {
+        CallFromFloor6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Call7ActionPerformed(evt);
+                CallFromFloor6ActionPerformed(evt);
             }
         });
-        Call7.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        CallFromFloor6.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                Call7PropertyChange(evt);
+                CallFromFloor6PropertyChange(evt);
             }
         });
-        Building1.add(Call7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 60, 41));
+        Building1.add(CallFromFloor6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 60, 41));
 
-        Call5.setBackground(new java.awt.Color(255, 255, 255));
-        Call5.setText("Call");
-        Building1.add(Call5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 60, 41));
-
-        Call4.setBackground(new java.awt.Color(255, 255, 255));
-        Call4.setText("Call");
-        Building1.add(Call4, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 271, 60, 41));
-
-        Call3.setBackground(new java.awt.Color(255, 255, 255));
-        Call3.setText("Call");
-        Building1.add(Call3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 60, 41));
-
-        Call2.setBackground(new java.awt.Color(255, 255, 255));
-        Call2.setText("Call");
-        Building1.add(Call2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 60, 41));
-
-        Call1.setBackground(new java.awt.Color(255, 255, 255));
-        Call1.setText("Call");
-        Call1.addActionListener(new java.awt.event.ActionListener() {
+        CallFromFloor5.setBackground(new java.awt.Color(255, 255, 255));
+        CallFromFloor5.setText("Call");
+        CallFromFloor5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Call1ActionPerformed(evt);
+                CallFromFloor5ActionPerformed(evt);
             }
         });
-        Building1.add(Call1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 580, 60, 41));
+        Building1.add(CallFromFloor5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 60, 41));
+
+        CallFromFloor4.setBackground(new java.awt.Color(255, 255, 255));
+        CallFromFloor4.setText("Call");
+        CallFromFloor4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CallFromFloor4ActionPerformed(evt);
+            }
+        });
+        Building1.add(CallFromFloor4, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 271, 60, 41));
+
+        CallFromFloor3.setBackground(new java.awt.Color(255, 255, 255));
+        CallFromFloor3.setText("Call");
+        CallFromFloor3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CallFromFloor3ActionPerformed(evt);
+            }
+        });
+        Building1.add(CallFromFloor3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 60, 41));
+
+        CallFromFloor2.setBackground(new java.awt.Color(255, 255, 255));
+        CallFromFloor2.setText("Call");
+        CallFromFloor2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CallFromFloor2ActionPerformed(evt);
+            }
+        });
+        Building1.add(CallFromFloor2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 60, 41));
+
+        CallFromFloor1.setBackground(new java.awt.Color(255, 255, 255));
+        CallFromFloor1.setText("Call");
+        CallFromFloor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CallFromFloor1ActionPerformed(evt);
+            }
+        });
+        Building1.add(CallFromFloor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 580, 60, 41));
 
         Elevator.setBackground(new java.awt.Color(0, 153, 255));
 
@@ -129,70 +156,70 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
-        Building1.add(Elevator, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 50, 60));
+        Building1.add(Elevator, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 500, 50, 60));
 
         ButtonsPanel.setBackground(new java.awt.Color(219, 217, 208));
 
-        RequestFloor1.setText("1");
-        RequestFloor1.addActionListener(new java.awt.event.ActionListener() {
+        RequestToFloor1.setText("1");
+        RequestToFloor1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RequestFloor1ActionPerformed(evt);
+                RequestToFloor1ActionPerformed(evt);
             }
         });
 
-        RequestFloor2.setText("2");
-        RequestFloor2.addActionListener(new java.awt.event.ActionListener() {
+        RequestToFloor2.setText("2");
+        RequestToFloor2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RequestFloor2ActionPerformed(evt);
+                RequestToFloor2ActionPerformed(evt);
             }
         });
 
-        RequestFloor3.setText("3");
-        RequestFloor3.addActionListener(new java.awt.event.ActionListener() {
+        RequestToFloor3.setText("3");
+        RequestToFloor3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RequestFloor3ActionPerformed(evt);
+                RequestToFloor3ActionPerformed(evt);
             }
         });
 
-        RequestFloor4.setText("4");
-        RequestFloor4.addActionListener(new java.awt.event.ActionListener() {
+        RequestToFloor4.setText("4");
+        RequestToFloor4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RequestFloor4ActionPerformed(evt);
+                RequestToFloor4ActionPerformed(evt);
             }
         });
 
-        RequestFloor5.setText("5");
-        RequestFloor5.addActionListener(new java.awt.event.ActionListener() {
+        RequestToFloor5.setText("5");
+        RequestToFloor5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RequestFloor5ActionPerformed(evt);
+                RequestToFloor5ActionPerformed(evt);
             }
         });
 
-        RequestFloor6.setText("6");
-        RequestFloor6.addActionListener(new java.awt.event.ActionListener() {
+        RequestToFloor6.setText("6");
+        RequestToFloor6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RequestFloor6ActionPerformed(evt);
+                RequestToFloor6ActionPerformed(evt);
             }
         });
 
-        OpenDoor.setText("Open Door");
-        OpenDoor.addActionListener(new java.awt.event.ActionListener() {
+        OpenDoorBtn.setText("Open Door");
+        OpenDoorBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                OpenDoorActionPerformed(evt);
+                OpenDoorBtnActionPerformed(evt);
             }
         });
 
-        CloseDoor.setText("Close Door");
-        CloseDoor.addActionListener(new java.awt.event.ActionListener() {
+        CloseDoorBtn.setText("Close Door");
+        CloseDoorBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CloseDoorActionPerformed(evt);
+                CloseDoorBtnActionPerformed(evt);
             }
         });
 
-        Emergency.setText("Emergency");
-        Emergency.addActionListener(new java.awt.event.ActionListener() {
+        EmergencyBtn.setText("Emergency");
+        EmergencyBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EmergencyActionPerformed(evt);
+                EmergencyBtnActionPerformed(evt);
             }
         });
 
@@ -205,17 +232,17 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(ButtonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ButtonsPanelLayout.createSequentialGroup()
                         .addGroup(ButtonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(RequestFloor5, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                            .addComponent(RequestFloor3, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                            .addComponent(RequestFloor1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(RequestToFloor5, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                            .addComponent(RequestToFloor3, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                            .addComponent(RequestToFloor1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(ButtonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(RequestFloor4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, Short.MAX_VALUE)
-                            .addComponent(RequestFloor6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                            .addComponent(RequestFloor2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                    .addComponent(OpenDoor, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(CloseDoor, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(Emergency, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(RequestToFloor4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, Short.MAX_VALUE)
+                            .addComponent(RequestToFloor6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                            .addComponent(RequestToFloor2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addComponent(OpenDoorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(CloseDoorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(EmergencyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
         ButtonsPanelLayout.setVerticalGroup(
@@ -223,22 +250,22 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(ButtonsPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(ButtonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(RequestFloor2, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-                    .addComponent(RequestFloor1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(RequestToFloor2, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+                    .addComponent(RequestToFloor1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ButtonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RequestFloor3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RequestFloor4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(RequestToFloor3, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RequestToFloor4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ButtonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RequestFloor5, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RequestFloor6, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(RequestToFloor5, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RequestToFloor6, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(OpenDoor, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(OpenDoorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CloseDoor, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CloseDoorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Emergency, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(EmergencyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
@@ -261,58 +288,88 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Call7HierarchyChanged(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_Call7HierarchyChanged
+    private void CallFromFloor6HierarchyChanged(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_CallFromFloor6HierarchyChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_Call7HierarchyChanged
+    }//GEN-LAST:event_CallFromFloor6HierarchyChanged
 
-    private void Call7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Call7ActionPerformed
+    private void CallFromFloor6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CallFromFloor6ActionPerformed
+        TranslateTo(6);
+    }//GEN-LAST:event_CallFromFloor6ActionPerformed
+
+    private void CallFromFloor6PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_CallFromFloor6PropertyChange
+
+    }//GEN-LAST:event_CallFromFloor6PropertyChange
+
+    private void CallFromFloor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CallFromFloor1ActionPerformed
+        TranslateTo(1);
+    }//GEN-LAST:event_CallFromFloor1ActionPerformed
+
+    private void RequestToFloor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestToFloor1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Call7ActionPerformed
+    }//GEN-LAST:event_RequestToFloor1ActionPerformed
 
-    private void Call7PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_Call7PropertyChange
+    private void RequestToFloor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestToFloor2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Call7PropertyChange
+    }//GEN-LAST:event_RequestToFloor2ActionPerformed
 
-    private void Call1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Call1ActionPerformed
-
-    }//GEN-LAST:event_Call1ActionPerformed
-
-    private void RequestFloor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor1ActionPerformed
+    private void RequestToFloor3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestToFloor3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_RequestFloor1ActionPerformed
+    }//GEN-LAST:event_RequestToFloor3ActionPerformed
 
-    private void RequestFloor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor2ActionPerformed
+    private void RequestToFloor4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestToFloor4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_RequestFloor2ActionPerformed
+    }//GEN-LAST:event_RequestToFloor4ActionPerformed
 
-    private void RequestFloor3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor3ActionPerformed
+    private void RequestToFloor5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestToFloor5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_RequestFloor3ActionPerformed
+    }//GEN-LAST:event_RequestToFloor5ActionPerformed
 
-    private void RequestFloor4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor4ActionPerformed
+    private void RequestToFloor6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestToFloor6ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_RequestFloor4ActionPerformed
+    }//GEN-LAST:event_RequestToFloor6ActionPerformed
 
-    private void RequestFloor5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor5ActionPerformed
+    private void OpenDoorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenDoorBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_RequestFloor5ActionPerformed
+    }//GEN-LAST:event_OpenDoorBtnActionPerformed
 
-    private void RequestFloor6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor6ActionPerformed
+    private void CloseDoorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseDoorBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_RequestFloor6ActionPerformed
+    }//GEN-LAST:event_CloseDoorBtnActionPerformed
 
-    private void OpenDoorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenDoorActionPerformed
+    private void EmergencyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmergencyBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_OpenDoorActionPerformed
+    }//GEN-LAST:event_EmergencyBtnActionPerformed
 
-    private void CloseDoorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseDoorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CloseDoorActionPerformed
+    private void CallFromFloor5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CallFromFloor5ActionPerformed
+        TranslateTo(5);
+    }//GEN-LAST:event_CallFromFloor5ActionPerformed
 
-    private void EmergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmergencyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EmergencyActionPerformed
+    private void CallFromFloor4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CallFromFloor4ActionPerformed
+        TranslateTo(4);
+    }//GEN-LAST:event_CallFromFloor4ActionPerformed
 
+    private void CallFromFloor3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CallFromFloor3ActionPerformed
+        TranslateTo(3);
+    }//GEN-LAST:event_CallFromFloor3ActionPerformed
+
+    private void CallFromFloor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CallFromFloor2ActionPerformed
+        TranslateTo(2);
+    }//GEN-LAST:event_CallFromFloor2ActionPerformed
+
+    
+    private void TranslateTo(int FloorNumber) {
+
+        int FloorIndex = FloorNumber-1;
+        float [] FloorY = {590,470,360,250,150,55};
+        while (Math.abs(Elevator.getLocation().y - FloorY[FloorIndex]) > 10) {
+            if (Elevator.getLocation().y > FloorY[FloorIndex]) {
+                Elevator.setLocation(Elevator.getLocation().x, Elevator.getLocation().y - 10);
+            } else {
+                Elevator.setLocation(Elevator.getLocation().x, Elevator.getLocation().y + 10);
+            } 
+        }
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -353,24 +410,24 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel Building;
     private javax.swing.JPanel Building1;
     private javax.swing.JPanel ButtonsPanel;
-    private javax.swing.JButton Call1;
-    private javax.swing.JButton Call2;
-    private javax.swing.JButton Call3;
-    private javax.swing.JButton Call4;
-    private javax.swing.JButton Call5;
     private javax.swing.JButton Call6;
-    private javax.swing.JButton Call7;
-    private javax.swing.JButton CloseDoor;
+    private javax.swing.JButton CallFromFloor1;
+    private javax.swing.JButton CallFromFloor2;
+    private javax.swing.JButton CallFromFloor3;
+    private javax.swing.JButton CallFromFloor4;
+    private javax.swing.JButton CallFromFloor5;
+    private javax.swing.JButton CallFromFloor6;
+    private javax.swing.JButton CloseDoorBtn;
     private javax.swing.JPanel Elevator;
-    private javax.swing.JButton Emergency;
+    private javax.swing.JButton EmergencyBtn;
     private javax.swing.JPanel Led;
-    private javax.swing.JButton OpenDoor;
-    private javax.swing.JButton RequestFloor1;
-    private javax.swing.JButton RequestFloor2;
-    private javax.swing.JButton RequestFloor3;
-    private javax.swing.JButton RequestFloor4;
-    private javax.swing.JButton RequestFloor5;
-    private javax.swing.JButton RequestFloor6;
+    private javax.swing.JButton OpenDoorBtn;
+    private javax.swing.JButton RequestToFloor1;
+    private javax.swing.JButton RequestToFloor2;
+    private javax.swing.JButton RequestToFloor3;
+    private javax.swing.JButton RequestToFloor4;
+    private javax.swing.JButton RequestToFloor5;
+    private javax.swing.JButton RequestToFloor6;
     private javax.swing.JLabel bg;
     // End of variables declaration//GEN-END:variables
 }
