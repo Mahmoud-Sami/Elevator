@@ -2,7 +2,7 @@ package events;
 
 public class RequestFloorEvent {
 
-    private int floorNumber;
+    private final int floorNumber;
 
     public RequestFloorEvent(int floorNumber) {
         this.floorNumber = floorNumber;

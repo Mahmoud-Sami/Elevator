@@ -2,7 +2,7 @@ package events;
 
 public class LedStateSensor {
 
-    private enum Color { Red, Green };
+    public enum Color { Red, Green };
 
     private final Color ledColor;
 

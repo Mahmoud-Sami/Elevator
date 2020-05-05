@@ -2,14 +2,18 @@ package events;
 
 public class CarStateSensor {
 
-    private enum CarDirection { UP, DOWN };
+    public enum CarDirection { UP, DOWN, None };
     
     private final CarDirection carDir;
     private final boolean isMoving;
-
-    public CarStateSensor(CarDirection carDir, boolean isMoving) {
+    private final int carPositionY;
+    private final int currentFloor;
+    
+    public CarStateSensor(CarDirection carDir, boolean isMoving, int carPositionY, int currentFloor) {
         this.carDir = carDir;
         this.isMoving = isMoving;
+        this.carPositionY = carPositionY;
+        this.currentFloor = currentFloor;
     }
 
     public CarDirection getCarDir() {
@@ -19,5 +23,15 @@ public class CarStateSensor {
     public boolean isIsMoving() {
         return isMoving;
     }
+
+    public int getCarPositionY() {
+        return carPositionY;
+    }
+
+    public int getCurrentFloor() {
+        return currentFloor;
+    }
+    
+    
     
 }
