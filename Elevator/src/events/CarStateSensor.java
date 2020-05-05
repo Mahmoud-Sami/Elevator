@@ -2,14 +2,22 @@ package events;
 
 public class CarStateSensor {
 
-    private String carstate;
+    private enum CarDirection { UP, DOWN };
+    
+    private final CarDirection carDir;
+    private final boolean isMoving;
 
-    public CarStateSensor(String carstate) {
-        this.carstate = carstate;
+    public CarStateSensor(CarDirection carDir, boolean isMoving) {
+        this.carDir = carDir;
+        this.isMoving = isMoving;
     }
 
-    public String getCarstate() {
-        return carstate;
+    public CarDirection getCarDir() {
+        return carDir;
     }
 
+    public boolean isIsMoving() {
+        return isMoving;
+    }
+    
 }

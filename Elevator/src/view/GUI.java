@@ -5,32 +5,19 @@
  */
 package view;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.text.html.ImageView;
-
 /**
  *
  * @author halim
  */
 public class GUI extends javax.swing.JFrame {
 
+    /**
+     * Creates new form ElevatorGUI
+     */
     public GUI() {
         initComponents();
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,8 +27,8 @@ public class GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Building = new javax.swing.JPanel();
-        Call6 = new javax.swing.JButton();
+        Building1 = new javax.swing.JPanel();
+        Call7 = new javax.swing.JButton();
         Call5 = new javax.swing.JButton();
         Call4 = new javax.swing.JButton();
         Call3 = new javax.swing.JButton();
@@ -59,47 +46,47 @@ public class GUI extends javax.swing.JFrame {
         OpenDoor = new javax.swing.JButton();
         CloseDoor = new javax.swing.JButton();
         Emergency = new javax.swing.JButton();
-        background = new javax.swing.JLabel();
+        bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Building.setBackground(new java.awt.Color(255, 255, 255));
-        Building.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Building1.setBackground(new java.awt.Color(255, 255, 255));
+        Building1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Call6.setBackground(new java.awt.Color(255, 255, 255));
-        Call6.setText("Call");
-        Call6.addHierarchyListener(new java.awt.event.HierarchyListener() {
+        Call7.setBackground(new java.awt.Color(255, 255, 255));
+        Call7.setText("Call");
+        Call7.addHierarchyListener(new java.awt.event.HierarchyListener() {
             public void hierarchyChanged(java.awt.event.HierarchyEvent evt) {
-                Call6HierarchyChanged(evt);
+                Call7HierarchyChanged(evt);
             }
         });
-        Call6.addActionListener(new java.awt.event.ActionListener() {
+        Call7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Call6ActionPerformed(evt);
+                Call7ActionPerformed(evt);
             }
         });
-        Call6.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        Call7.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                Call6PropertyChange(evt);
+                Call7PropertyChange(evt);
             }
         });
-        Building.add(Call6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 60, 41));
+        Building1.add(Call7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 60, 41));
 
         Call5.setBackground(new java.awt.Color(255, 255, 255));
         Call5.setText("Call");
-        Building.add(Call5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 60, 41));
+        Building1.add(Call5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 60, 41));
 
         Call4.setBackground(new java.awt.Color(255, 255, 255));
         Call4.setText("Call");
-        Building.add(Call4, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 271, 60, 41));
+        Building1.add(Call4, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 271, 60, 41));
 
         Call3.setBackground(new java.awt.Color(255, 255, 255));
         Call3.setText("Call");
-        Building.add(Call3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 60, 41));
+        Building1.add(Call3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 60, 41));
 
         Call2.setBackground(new java.awt.Color(255, 255, 255));
         Call2.setText("Call");
-        Building.add(Call2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 60, 41));
+        Building1.add(Call2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 60, 41));
 
         Call1.setBackground(new java.awt.Color(255, 255, 255));
         Call1.setText("Call");
@@ -108,7 +95,7 @@ public class GUI extends javax.swing.JFrame {
                 Call1ActionPerformed(evt);
             }
         });
-        Building.add(Call1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 580, 60, 41));
+        Building1.add(Call1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 580, 60, 41));
 
         Elevator.setBackground(new java.awt.Color(0, 153, 255));
 
@@ -142,7 +129,7 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
-        Building.add(Elevator, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 50, 60));
+        Building1.add(Elevator, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 50, 60));
 
         ButtonsPanel.setBackground(new java.awt.Color(219, 217, 208));
 
@@ -255,76 +242,76 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
-        Building.add(ButtonsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, -1, 320));
+        Building1.add(ButtonsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, -1, 320));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/bg.jpg"))); // NOI18N
-        Building.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 680));
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/bg.jpg"))); // NOI18N
+        Building1.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 680));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Building, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Building1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Building, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Building1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void Call7HierarchyChanged(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_Call7HierarchyChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Call7HierarchyChanged
+
+    private void Call7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Call7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Call7ActionPerformed
+
+    private void Call7PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_Call7PropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Call7PropertyChange
+
     private void Call1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Call1ActionPerformed
-        
+
     }//GEN-LAST:event_Call1ActionPerformed
-
-    private void Call6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Call6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Call6ActionPerformed
-
-    private void EmergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmergencyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EmergencyActionPerformed
-
-    private void CloseDoorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseDoorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CloseDoorActionPerformed
-
-    private void OpenDoorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenDoorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_OpenDoorActionPerformed
-
-    private void RequestFloor6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RequestFloor6ActionPerformed
-
-    private void RequestFloor5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RequestFloor5ActionPerformed
-
-    private void RequestFloor4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RequestFloor4ActionPerformed
-
-    private void RequestFloor3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RequestFloor3ActionPerformed
-
-    private void RequestFloor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RequestFloor2ActionPerformed
 
     private void RequestFloor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_RequestFloor1ActionPerformed
 
-    private void Call6HierarchyChanged(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_Call6HierarchyChanged
+    private void RequestFloor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Call6HierarchyChanged
+    }//GEN-LAST:event_RequestFloor2ActionPerformed
 
-    private void Call6PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_Call6PropertyChange
+    private void RequestFloor3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Call6PropertyChange
+    }//GEN-LAST:event_RequestFloor3ActionPerformed
+
+    private void RequestFloor4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RequestFloor4ActionPerformed
+
+    private void RequestFloor5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RequestFloor5ActionPerformed
+
+    private void RequestFloor6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestFloor6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RequestFloor6ActionPerformed
+
+    private void OpenDoorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpenDoorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OpenDoorActionPerformed
+
+    private void CloseDoorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseDoorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CloseDoorActionPerformed
+
+    private void EmergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmergencyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EmergencyActionPerformed
 
     /**
      * @param args the command line arguments
@@ -353,12 +340,9 @@ public class GUI extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
             public void run() {
                 new GUI().setVisible(true);
             }
@@ -367,6 +351,7 @@ public class GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Building;
+    private javax.swing.JPanel Building1;
     private javax.swing.JPanel ButtonsPanel;
     private javax.swing.JButton Call1;
     private javax.swing.JButton Call2;
@@ -374,6 +359,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton Call4;
     private javax.swing.JButton Call5;
     private javax.swing.JButton Call6;
+    private javax.swing.JButton Call7;
     private javax.swing.JButton CloseDoor;
     private javax.swing.JPanel Elevator;
     private javax.swing.JButton Emergency;
@@ -385,6 +371,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton RequestFloor4;
     private javax.swing.JButton RequestFloor5;
     private javax.swing.JButton RequestFloor6;
-    private javax.swing.JLabel background;
+    private javax.swing.JLabel bg;
     // End of variables declaration//GEN-END:variables
 }
