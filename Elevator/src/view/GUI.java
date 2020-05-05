@@ -43,6 +43,7 @@ public class GUI extends javax.swing.JFrame {
         CallFromFloor1 = new javax.swing.JButton();
         Elevator = new javax.swing.JPanel();
         Led = new javax.swing.JPanel();
+        Image = new javax.swing.JLabel();
         ButtonsPanel = new javax.swing.JPanel();
         RequestToFloor1 = new javax.swing.JButton();
         RequestToFloor2 = new javax.swing.JButton();
@@ -125,6 +126,7 @@ public class GUI extends javax.swing.JFrame {
         Building1.add(CallFromFloor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 580, 60, 41));
 
         Elevator.setBackground(new java.awt.Color(0, 153, 255));
+        Elevator.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Led.setBackground(new java.awt.Color(0, 204, 51));
 
@@ -139,24 +141,12 @@ public class GUI extends javax.swing.JFrame {
             .addGap(0, 10, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout ElevatorLayout = new javax.swing.GroupLayout(Elevator);
-        Elevator.setLayout(ElevatorLayout);
-        ElevatorLayout.setHorizontalGroup(
-            ElevatorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ElevatorLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(Led, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-        ElevatorLayout.setVerticalGroup(
-            ElevatorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ElevatorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Led, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
-        );
+        Elevator.add(Led, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 0, -1, -1));
 
-        Building1.add(Elevator, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 500, 50, 60));
+        Image.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/opened.png"))); // NOI18N
+        Elevator.add(Image, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 60));
+
+        Building1.add(Elevator, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 480, 50, 60));
 
         ButtonsPanel.setBackground(new java.awt.Color(219, 217, 208));
 
@@ -420,6 +410,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton CloseDoorBtn;
     private javax.swing.JPanel Elevator;
     private javax.swing.JButton EmergencyBtn;
+    private javax.swing.JLabel Image;
     private javax.swing.JPanel Led;
     private javax.swing.JButton OpenDoorBtn;
     private javax.swing.JButton RequestToFloor1;
