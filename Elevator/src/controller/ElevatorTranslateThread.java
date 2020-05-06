@@ -1,4 +1,4 @@
-package model;
+package controller;
 
 import esper.Config;
 import events.CarStateSensor;
@@ -10,6 +10,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import model.Elevator;
+import model.Request;
 
 class ElevatorTranslateThread extends TimerTask 
 { 
@@ -58,9 +60,14 @@ class ElevatorTranslateThread extends TimerTask
     @Override
     public void run() 
     { 
-        System.out.println(elevator.getController().getCarRequestQueue().size());
+        if (elevator.isEmergencyTrigger()){
+            this.cancel();
+            return;
+        }
+        //System.out.println(elevator.getController().getCarRequestQueue().size());
         int FloorIndex = this.request.getRequestedFloor() - 1;
         JPanel Elevator = elevator.getGUI().getElevatorPanel();
+        
         if (Math.abs(Elevator.getLocation().y - FloorY[FloorIndex]) > 0){
             if (Elevator.getLocation().y > FloorY[FloorIndex]) {
                 Elevator.setLocation(Elevator.getLocation().x, Elevator.getLocation().y - 1);
@@ -82,7 +89,15 @@ class ElevatorTranslateThread extends TimerTask
                     } else if (((JButton) c).getName().compareToIgnoreCase("U" + request.getClickedBtn().getName().charAt(1)) == 0){
                         ((JButton) c).setBackground(Color.WHITE);
                     }
-                    
+                }
+            }
+            
+            for (Component c : elevator.getGUI().getButtonsPanel().getComponents()) {
+                if (c instanceof JButton) {
+                    if (((JButton) c).getName().compareToIgnoreCase("B" + request.getRequestedFloor()) == 0) {
+                        ((JButton) c).setBackground(Color.WHITE);
+                        break;
+                    }
                 }
             }
             this.cancel();

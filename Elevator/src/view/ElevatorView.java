@@ -8,6 +8,10 @@ package view;
 import esper.Config;
 import events.CarCallEvent;
 import events.DoorStateSensor;
+import events.EmergencyEvent;
+import events.RequestFloorEvent;
+import java.awt.Dimension;
+import java.awt.Point;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -19,6 +23,9 @@ public class ElevatorView extends javax.swing.JFrame {
     
     public ElevatorView() {
         initComponents();
+        this.setTitle("Elevator Control System - Simulation");
+        this.setResizable(false);
+        
     }
 
     
@@ -51,9 +58,15 @@ public class ElevatorView extends javax.swing.JFrame {
         btnCloseDoor = new javax.swing.JButton();
         btnEmergency = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        alarmImageLabel = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         BuildingPanel.setBackground(new java.awt.Color(255, 255, 255));
         BuildingPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -66,7 +79,7 @@ public class ElevatorView extends javax.swing.JFrame {
                 btnCall6DownActionPerformed(evt);
             }
         });
-        BuildingPanel.add(btnCall6Down, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 60, 45, 40));
+        BuildingPanel.add(btnCall6Down, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 45, 40));
 
         btnCall5Up.setBackground(new java.awt.Color(255, 255, 255));
         btnCall5Up.setText("↑");
@@ -76,7 +89,7 @@ public class ElevatorView extends javax.swing.JFrame {
                 btnCall5UpActionPerformed(evt);
             }
         });
-        BuildingPanel.add(btnCall5Up, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 45, 40));
+        BuildingPanel.add(btnCall5Up, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 45, 40));
 
         btnCall5Down.setBackground(new java.awt.Color(255, 255, 255));
         btnCall5Down.setText("↓");
@@ -86,7 +99,7 @@ public class ElevatorView extends javax.swing.JFrame {
                 btnCall5DownActionPerformed(evt);
             }
         });
-        BuildingPanel.add(btnCall5Down, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 170, 45, 40));
+        BuildingPanel.add(btnCall5Down, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 45, 40));
 
         btnCall4Up.setBackground(new java.awt.Color(255, 255, 255));
         btnCall4Up.setText("↑");
@@ -96,7 +109,7 @@ public class ElevatorView extends javax.swing.JFrame {
                 btnCall4UpActionPerformed(evt);
             }
         });
-        BuildingPanel.add(btnCall4Up, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 45, 40));
+        BuildingPanel.add(btnCall4Up, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 45, 40));
 
         btnCall4Down.setBackground(new java.awt.Color(255, 255, 255));
         btnCall4Down.setText("↓");
@@ -106,7 +119,7 @@ public class ElevatorView extends javax.swing.JFrame {
                 btnCall4DownActionPerformed(evt);
             }
         });
-        BuildingPanel.add(btnCall4Down, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 270, 45, 40));
+        BuildingPanel.add(btnCall4Down, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 45, 40));
 
         btnCall3Up.setBackground(new java.awt.Color(255, 255, 255));
         btnCall3Up.setText("↑");
@@ -116,7 +129,7 @@ public class ElevatorView extends javax.swing.JFrame {
                 btnCall3UpActionPerformed(evt);
             }
         });
-        BuildingPanel.add(btnCall3Up, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 45, 40));
+        BuildingPanel.add(btnCall3Up, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 45, 40));
 
         btnCall3Down.setBackground(new java.awt.Color(255, 255, 255));
         btnCall3Down.setText("↓");
@@ -126,7 +139,7 @@ public class ElevatorView extends javax.swing.JFrame {
                 btnCall3DownActionPerformed(evt);
             }
         });
-        BuildingPanel.add(btnCall3Down, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 370, 45, 40));
+        BuildingPanel.add(btnCall3Down, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 45, 40));
 
         btnCall2Up.setBackground(new java.awt.Color(255, 255, 255));
         btnCall2Up.setText("↑");
@@ -136,7 +149,7 @@ public class ElevatorView extends javax.swing.JFrame {
                 btnCall2UpActionPerformed(evt);
             }
         });
-        BuildingPanel.add(btnCall2Up, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 45, 40));
+        BuildingPanel.add(btnCall2Up, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 480, 45, 40));
 
         btnCall2Down.setBackground(new java.awt.Color(255, 255, 255));
         btnCall2Down.setText("↓");
@@ -146,7 +159,7 @@ public class ElevatorView extends javax.swing.JFrame {
                 btnCall2DownActionPerformed(evt);
             }
         });
-        BuildingPanel.add(btnCall2Down, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 480, 45, 40));
+        BuildingPanel.add(btnCall2Down, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 480, 45, 40));
 
         btnCall1Up.setBackground(new java.awt.Color(255, 255, 255));
         btnCall1Up.setText("↑");
@@ -156,7 +169,7 @@ public class ElevatorView extends javax.swing.JFrame {
                 btnCall1UpActionPerformed(evt);
             }
         });
-        BuildingPanel.add(btnCall1Up, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 590, 45, 40));
+        BuildingPanel.add(btnCall1Up, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 590, 45, 40));
 
         ElevatorPanel.setBackground(new java.awt.Color(0, 153, 255));
         ElevatorPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -180,58 +193,70 @@ public class ElevatorView extends javax.swing.JFrame {
         doorImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/opened.png"))); // NOI18N
         ElevatorPanel.add(doorImageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 50, 60));
 
-        BuildingPanel.add(ElevatorPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 580, 50, 65));
+        BuildingPanel.add(ElevatorPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 580, 50, 65));
 
         ButtonsPanel.setBackground(new java.awt.Color(219, 217, 208));
         ButtonsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnFloor1.setBackground(new java.awt.Color(255, 255, 255));
         btnFloor1.setText("1");
+        btnFloor1.setName("B1"); // NOI18N
         btnFloor1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFloor1ActionPerformed(evt);
             }
         });
-        ButtonsPanel.add(btnFloor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 50, 50));
+        ButtonsPanel.add(btnFloor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 80, 50));
 
+        btnFloor2.setBackground(new java.awt.Color(255, 255, 255));
         btnFloor2.setText("2");
+        btnFloor2.setName("B2"); // NOI18N
         btnFloor2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFloor2ActionPerformed(evt);
             }
         });
-        ButtonsPanel.add(btnFloor2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 50, 50));
+        ButtonsPanel.add(btnFloor2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 80, 50));
 
+        btnFloor3.setBackground(new java.awt.Color(255, 255, 255));
         btnFloor3.setText("3");
+        btnFloor3.setName("B3"); // NOI18N
         btnFloor3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFloor3ActionPerformed(evt);
             }
         });
-        ButtonsPanel.add(btnFloor3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 50, 50));
+        ButtonsPanel.add(btnFloor3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 80, 50));
 
+        btnFloor4.setBackground(new java.awt.Color(255, 255, 255));
         btnFloor4.setText("4");
+        btnFloor4.setName("B4"); // NOI18N
         btnFloor4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFloor4ActionPerformed(evt);
             }
         });
-        ButtonsPanel.add(btnFloor4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 50, 50));
+        ButtonsPanel.add(btnFloor4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 80, 50));
 
+        btnFloor5.setBackground(new java.awt.Color(255, 255, 255));
         btnFloor5.setText("5");
+        btnFloor5.setName("B5"); // NOI18N
         btnFloor5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFloor5ActionPerformed(evt);
             }
         });
-        ButtonsPanel.add(btnFloor5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 50, 50));
+        ButtonsPanel.add(btnFloor5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 80, 50));
 
+        btnFloor6.setBackground(new java.awt.Color(255, 255, 255));
         btnFloor6.setText("6");
+        btnFloor6.setName("B6"); // NOI18N
         btnFloor6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFloor6ActionPerformed(evt);
             }
         });
-        ButtonsPanel.add(btnFloor6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 50, 50));
+        ButtonsPanel.add(btnFloor6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 80, 50));
 
         btnOpenDoor.setText("Open Door");
         btnOpenDoor.addActionListener(new java.awt.event.ActionListener() {
@@ -239,7 +264,7 @@ public class ElevatorView extends javax.swing.JFrame {
                 btnOpenDoorActionPerformed(evt);
             }
         });
-        ButtonsPanel.add(btnOpenDoor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 100, 50));
+        ButtonsPanel.add(btnOpenDoor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 170, 50));
 
         btnCloseDoor.setText("Close Door");
         btnCloseDoor.addActionListener(new java.awt.event.ActionListener() {
@@ -247,7 +272,7 @@ public class ElevatorView extends javax.swing.JFrame {
                 btnCloseDoorActionPerformed(evt);
             }
         });
-        ButtonsPanel.add(btnCloseDoor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 100, 50));
+        ButtonsPanel.add(btnCloseDoor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 170, 50));
 
         btnEmergency.setText("Emergency");
         btnEmergency.addActionListener(new java.awt.event.ActionListener() {
@@ -255,24 +280,30 @@ public class ElevatorView extends javax.swing.JFrame {
                 btnEmergencyActionPerformed(evt);
             }
         });
-        ButtonsPanel.add(btnEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 100, 50));
+        ButtonsPanel.add(btnEmergency, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 170, 50));
 
         jLabel1.setBackground(new java.awt.Color(51, 51, 51));
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 10)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Elevator Controller");
-        ButtonsPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 30));
+        ButtonsPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 150, 30));
 
-        BuildingPanel.add(ButtonsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 120, 350));
+        BuildingPanel.add(ButtonsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 190, 390));
 
-        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/bg.jpg"))); // NOI18N
-        BuildingPanel.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 680));
+        alarmImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/alarm.gif"))); // NOI18N
+        alarmImageLabel.setPreferredSize(new java.awt.Dimension(20, 96));
+        BuildingPanel.add(alarmImageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 10, -1));
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/images/bg2.jpg"))); // NOI18N
+        BuildingPanel.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 680));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BuildingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(BuildingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,30 +314,31 @@ public class ElevatorView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFloor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFloor1ActionPerformed
-        // TODO add your handling code here:
+        Config.sendEvent(new RequestFloorEvent(1));
     }//GEN-LAST:event_btnFloor1ActionPerformed
 
     private void btnFloor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFloor2ActionPerformed
-        // TODO add your handling code here:
+        Config.sendEvent(new RequestFloorEvent(2));
     }//GEN-LAST:event_btnFloor2ActionPerformed
 
     private void btnFloor3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFloor3ActionPerformed
-        // TODO add your handling code here:
+        Config.sendEvent(new RequestFloorEvent(3));
     }//GEN-LAST:event_btnFloor3ActionPerformed
 
     private void btnFloor4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFloor4ActionPerformed
-        // TODO add your handling code here:
+        Config.sendEvent(new RequestFloorEvent(4));
     }//GEN-LAST:event_btnFloor4ActionPerformed
 
     private void btnFloor5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFloor5ActionPerformed
-        // TODO add your handling code here:
+        Config.sendEvent(new RequestFloorEvent(5));
     }//GEN-LAST:event_btnFloor5ActionPerformed
 
     private void btnFloor6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFloor6ActionPerformed
-        // TODO add your handling code here:
+        Config.sendEvent(new RequestFloorEvent(6));
     }//GEN-LAST:event_btnFloor6ActionPerformed
 
     private void btnOpenDoorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpenDoorActionPerformed
+        
         Config.sendEvent(new DoorStateSensor(true));
     }//GEN-LAST:event_btnOpenDoorActionPerformed
 
@@ -315,7 +347,7 @@ public class ElevatorView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCloseDoorActionPerformed
 
     private void btnEmergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmergencyActionPerformed
-        // TODO add your handling code here:
+        Config.sendEvent(new EmergencyEvent(true));
     }//GEN-LAST:event_btnEmergencyActionPerformed
 
     private void btnCall5UpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCall5UpActionPerformed
@@ -357,6 +389,10 @@ public class ElevatorView extends javax.swing.JFrame {
     private void btnCall6DownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCall6DownActionPerformed
         Config.sendEvent(new CarCallEvent(6, CarCallEvent.Direction.DOWN));
     }//GEN-LAST:event_btnCall6DownActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
 
 
     public JPanel getElevatorPanel() {
@@ -451,6 +487,16 @@ public class ElevatorView extends javax.swing.JFrame {
         return BuildingPanel;
     }
 
+    public JPanel getButtonsPanel() {
+        return ButtonsPanel;
+    }
+
+    public JLabel getAlarmImageLabel() {
+        return alarmImageLabel;
+    }
+
+
+    
     
     
 
@@ -459,6 +505,7 @@ public class ElevatorView extends javax.swing.JFrame {
     private javax.swing.JPanel BuildingPanel;
     private javax.swing.JPanel ButtonsPanel;
     private javax.swing.JPanel ElevatorPanel;
+    private javax.swing.JLabel alarmImageLabel;
     private javax.swing.JLabel bg;
     private javax.swing.JButton btnCall1Up;
     private javax.swing.JButton btnCall2Down;

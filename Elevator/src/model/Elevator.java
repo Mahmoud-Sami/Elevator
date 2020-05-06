@@ -1,23 +1,29 @@
 package model;
 
+import controller.EmergencyController;
+import controller.ElevatorController;
+import esper.Config;
 import events.CarStateSensor;
 import events.LedStateSensor.Color;
+import java.awt.Component;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import view.ElevatorView;
 
 public class Elevator {
     // The Elevator GUI
-    private ElevatorView gui;
+    private final ElevatorView gui;
     
     // Elevator Components
-    private ElevatorLed led;
-    private ElevatorDoor door;
-    private ElevatorController controller;
+    private final ElevatorLed led;
+    private final ElevatorDoor door;
+    private final ElevatorController controller;
     
-    // Elevators Status
-    private boolean doorState;
-    private Color ledColor;
+    // Elevators StatusW
     private CarStateSensor.CarDirection carDir;
     private boolean isMoving;
+    private boolean emergencyTrigger;
     private int carPositionY;
     private int currentFloor;
     
@@ -32,8 +38,6 @@ public class Elevator {
         this.controller = new ElevatorController(this);
         
         // Initialize Elevator Status
-        this.doorState = true;
-        this.ledColor = Color.Green;
         this.carDir = CarStateSensor.CarDirection.None;
         this.isMoving = false;
         this.carPositionY = 580;
@@ -49,7 +53,32 @@ public class Elevator {
     }
     
     public void AddRequest(Request request){
-        this.controller.AcceptCarRequest( (CarRequest)request);
+        this.controller.AcceptRequest(request);
+    }
+    
+    public void RunEmergency(){
+       this.gui.getBtnEmergency().setEnabled(false);
+       this.gui.getAlarmImageLabel().setSize(200, 200);
+        for (Component c : this.getGUI().getBuildingPanel().getComponents()) {
+            if (c instanceof JButton) {
+                c.setEnabled(false);
+                c.setBackground(java.awt.Color.WHITE);
+            }
+        }
+       
+       for (Component c : this.gui.getButtonsPanel().getComponents()){
+           if (c instanceof JButton) {
+                c.setEnabled(false);
+                c.setBackground(java.awt.Color.WHITE);
+            }
+       }
+       this.isMoving = false;
+       this.OpenDoor();
+       this.controller.getAudioController().playEmergency();
+       
+        JLabel alaramImage = new JLabel("Hello Wolrd");
+        alaramImage.setBounds(50,50, 100,30); 
+        this.gui.add(alaramImage);
     }
     
     
@@ -72,14 +101,6 @@ public class Elevator {
         return controller;
     }
 
-    public boolean getDoorState() {
-        return doorState;
-    }
-
-    public Color getLedColor() {
-        return ledColor;
-    }
-
     public CarStateSensor.CarDirection getCarDir() {
         return carDir;
     }
@@ -95,16 +116,14 @@ public class Elevator {
     public int getCurrentFloor() {
         return currentFloor;
     }
+
+    public boolean isEmergencyTrigger() {
+        return emergencyTrigger;
+    }
+    
+    
     
     // Setter
-
-    public void setDoorState(boolean doorState) {
-        this.doorState = doorState;
-    }
-
-    public void setLedColor(Color ledColor) {
-        this.ledColor = ledColor;
-    }
 
     public void setCarDir(CarStateSensor.CarDirection carDir) {
         this.carDir = carDir;
@@ -120,6 +139,10 @@ public class Elevator {
 
     public void setCurrentFloor(int currentFloor) {
         this.currentFloor = currentFloor;
+    }
+
+    public void setEmergencyTrigger(boolean emergencyTrigger) {
+        this.emergencyTrigger = emergencyTrigger;
     }
     
     

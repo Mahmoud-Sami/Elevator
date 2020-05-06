@@ -6,6 +6,7 @@ public class CarCallEvent {
     
     private final int floorNumber;
     private final Direction direction;
+    
     public CarCallEvent(int floorNumber, Direction direction) {
         this.floorNumber = floorNumber;
         this.direction = direction;

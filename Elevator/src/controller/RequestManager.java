@@ -1,9 +1,8 @@
-package model;
+package controller;
 
-import java.awt.Color;
-import java.util.Queue;
 import java.util.TimerTask;
-import javax.swing.UIManager;
+import model.Elevator;
+import model.Request;
 
 public class RequestManager extends TimerTask {
 
@@ -17,17 +16,19 @@ public class RequestManager extends TimerTask {
     
     @Override
     public void run() {
-        if (controller.getCarRequestQueue().isEmpty())
+        if (elevator.isEmergencyTrigger())
+        {
+            this.cancel();
+            return;
+        }
+        
+        if (controller.getRequests().isEmpty())
             return;
         
         if (elevator.getIsMoving())
             return;
         
         Request r = controller.getNextRequest();
-        if (r instanceof CarRequest){
-            controller.MoveElevator(r);
-            controller.removeTopRequest();
-        }
+        controller.MoveElevator(r);
     }
-    
 }

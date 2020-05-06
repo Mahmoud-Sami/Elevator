@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import jdk.nashorn.internal.objects.NativeDebug;
 import model.CarRequest;
 import model.Elevator;
+import model.Request;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
@@ -27,7 +28,7 @@ public class Main {
         Config.createStatement("select doorstate from DoorStateSensor")
                 .setSubscriber(new Object() {
                     public void update(boolean doorState) throws InterruptedException {
-                        elevator.setDoorState(doorState);
+                        elevator.getDoor().setDoorState(doorState);
                         
                         if (doorState == true)
                             elevator.OpenDoor();
@@ -76,6 +77,39 @@ public class Main {
                         if (elevator.getCurrentFloor() != floorNumber){
                             clickedBtn.setBackground(Color.YELLOW);
                             elevator.AddRequest(new CarRequest(floorNumber, direction, clickedBtn));
+                        }
+                    }
+                });
+        
+        Config.createStatement("select floorNumber from RequestFloorEvent")
+                .setSubscriber(new Object() {
+                    public void update(int floorNumber) throws InterruptedException {
+                        JButton clickedBtn = null;
+                        String btnName = "B" + floorNumber;
+                        
+                        //Searching for the clicked button
+                        for (Component c : elevator.getGUI().getButtonsPanel().getComponents()){
+                            if (c instanceof JButton){
+                                if (((JButton)c).getName().compareToIgnoreCase(btnName) == 0){
+                                    clickedBtn = (JButton)c;
+                                    break;
+                                }
+                            }
+                        }
+                        
+                        if (elevator.getCurrentFloor() != floorNumber){
+                            clickedBtn.setBackground(Color.YELLOW);
+                            elevator.AddRequest(new Request(floorNumber, clickedBtn));
+                        }
+                    }
+                });
+        
+        Config.createStatement("select trigger_emergency from EmergencyEvent")
+                .setSubscriber(new Object() {
+                    public void update(boolean status) throws InterruptedException {
+                        elevator.setEmergencyTrigger(status);
+                        if (status){
+                            elevator.RunEmergency();
                         }
                     }
                 });
