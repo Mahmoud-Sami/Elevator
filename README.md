@@ -12,6 +12,13 @@ This project simulates Elevator Controller using Java and Esper, the project is 
 ## Software Architecture used
 * Model View Controller (MVC)
 
+## State Machine Diagram
+<img src="https://github.com/Mahmoud-Sami/Elevator/blob/master/RTS%20Diagrams/Statemachine/StateMachine.jpg" width="600px">
+
+## Use Case Diagram
+<img src="https://github.com/Mahmoud-Sami/Elevator/blob/master/RTS%20Diagrams/Usecase/Usecase-Amr.jpg" width="600px">
+
+
 ## How to use it
 * Download/Clone the project 
 * Open the project from netbeans IDE
