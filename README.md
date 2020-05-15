@@ -3,7 +3,7 @@ This project simulates Elevator Controller using Java and Esper, the project is 
 
 ## Prerequisites  
 * [Java](https://www.oracle.com/java/) - Programming language.
-* [Esper](http://www.espertech.com/esper/) - Language, compiler and runtime that enables rapid development. 
+* [Esper](http://www.espertech.com/esper/) - Language, compiler and runtime that enables rapid real time development by offering an Event Processing Language (EPL) that implements and extends the SQL-standard and enables rich expressions over events and time.
 * [Netbeans](https://netbeans.org/) - Java-based integrated development environment (IDE).
 
 ## Graphical User Interface - Java Swing 
